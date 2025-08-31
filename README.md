@@ -98,5 +98,3 @@ The pipeline creates a `stock_prices` table in MySQL with columns like:
 - Data gets appended to MySQL table on each run
 
 ---
-
-**🔒 Security Note:** Never commit your `.env` file with real API keys to GitHub! The `.gitignore` file already excludes it.
