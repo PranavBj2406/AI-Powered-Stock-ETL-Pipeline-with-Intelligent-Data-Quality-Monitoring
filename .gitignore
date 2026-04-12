@@ -1,0 +1,8 @@
+.env
+logs/
+dags/__pycache__/
+dags/agents/__pycache__/
+__pycache__/
+*.pyc
+*.pyo
+.venv/
