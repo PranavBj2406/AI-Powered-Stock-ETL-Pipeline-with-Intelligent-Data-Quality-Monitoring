@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+.env
+logs/
+dags/__pycache__/
+dags/agents/__pycache__/
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+=======
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -150,3 +160,4 @@ Thumbs.db
 
 # Ignore docker-compose override files
 docker-compose.override.yaml
+>>>>>>> 6c8fde2c5597f707d34e7285155f952ded841aab

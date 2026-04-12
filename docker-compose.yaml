@@ -43,10 +43,17 @@
 version: '3'
 x-airflow-common:
   &airflow-common
+<<<<<<< HEAD
+  build: .
+  # In order to add custom dependencies or upgrade provider packages you can use your extended image.
+  # Comment the image line, place your Dockerfile in the directory where you placed the docker-compose.yaml
+  # and uncomment the "build" line below, Then run `docker-compose build` to build the images.
+=======
   # In order to add custom dependencies or upgrade provider packages you can use your extended image.
   # Comment the image line, place your Dockerfile in the directory where you placed the docker-compose.yaml
   # and uncomment the "build" line below, Then run `docker-compose build` to build the images.
   image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.5.1}
+>>>>>>> 6c8fde2c5597f707d34e7285155f952ded841aab
   # build: .
   environment:
     &airflow-common-env
@@ -60,7 +67,13 @@ x-airflow-common:
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
+<<<<<<< HEAD
+    RAPIDAPI_KEY: ${RAPIDAPI_KEY}
+    MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    GROQ_API_KEY: ${GROQ_API_KEY}
+=======
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
+>>>>>>> 6c8fde2c5597f707d34e7285155f952ded841aab
   volumes:
     - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
@@ -103,7 +116,11 @@ services:
     <<: *airflow-common
     command: webserver
     ports:
+<<<<<<< HEAD
+      - 8081:8080
+=======
       - 8080:8080
+>>>>>>> 6c8fde2c5597f707d34e7285155f952ded841aab
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
       interval: 10s
@@ -165,6 +182,10 @@ services:
         condition: service_completed_successfully
 
   airflow-init:
+<<<<<<< HEAD
+    image: apache/airflow:2.9.1-python3.10
+    command: airflow version
+=======
     <<: *airflow-common
     entrypoint: /bin/bash
     # yamllint disable rule:line-length
@@ -231,14 +252,19 @@ services:
         chown -R "${AIRFLOW_UID}:0" /sources/{logs,dags,plugins}
         exec /entrypoint airflow version
     # yamllint enable rule:line-length
+>>>>>>> 6c8fde2c5597f707d34e7285155f952ded841aab
     environment:
       <<: *airflow-common-env
       _AIRFLOW_DB_UPGRADE: 'true'
       _AIRFLOW_WWW_USER_CREATE: 'true'
       _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
       _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
+<<<<<<< HEAD
+    user: "${AIRFLOW_UID:-50000}:0"
+=======
       _PIP_ADDITIONAL_REQUIREMENTS: ''
     user: "0:0"
+>>>>>>> 6c8fde2c5597f707d34e7285155f952ded841aab
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
 
