@@ -7,6 +7,12 @@
 
 An automated ETL pipeline that fetches stock data from RapidAPI and loads it into MySQL using Apache Airflow.
 
+## 🏗️ System Architecture
+
+![System Architecture](HLD.png)
+
+
+
 ## 🚀 What it does
 
 1. **Extract** - Fetches real-time stock data from RapidAPI
