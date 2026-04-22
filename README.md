@@ -40,6 +40,7 @@ This improves reliability of downstream analytics and prevents corrupt financial
 
 The agent runs automatically inside the Airflow DAG as part of the ETL workflow.
 
+![System Architecture](HLD.png)
 
 ## 🛠️ Tech Stack
 
