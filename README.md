@@ -5,7 +5,7 @@
 ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 ![LangChain](https://img.shields.io/badge/LangChain-AI%20Agent-blue?style=for-the-badge)
 
-An automated ETL pipeline that fetches stock data from RapidAPI and loads it into MySQL using Apache Airflow.
+A Production-grade ETL pipeline ingesting ~150K stock records/month with AI-powered data quality validation and anomaly detection.
 
 ## 🏗️ System Architecture
 
